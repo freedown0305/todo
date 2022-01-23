@@ -3,10 +3,6 @@ import { Button,Navbar,Container,Nav,NavDropdown,Accordion,Badge,Row,Col,Form} f
 import './App.css';
 import Data from './data.js';
 
-function setList() {
-  alert(1);
-}
-
 function App() {
   let [todo, todoChange] = useState(Data);
   let [registForm, registFormChange] = useState(false);
