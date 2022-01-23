@@ -6,6 +6,16 @@ import Data from './data.js';
 function App() {
   let [todo, todoChange] = useState(Data);
   let [registForm, registFormChange] = useState(false);
+  let delList = (id) => {
+    let newTodo = [...todo];
+    newTodo = newTodo.filter((item) => {
+      if (id !== item.id) {
+        return item;
+      }
+    });
+
+    todoChange(newTodo);
+  }
 
   return (
     <div className="App">
@@ -41,6 +51,11 @@ function App() {
                 </Accordion.Header>
                 <Accordion.Body>
                   {v.desc}
+
+                  <br />
+                  <Button variant="danger" type="button" onClick={()=>{delList(v.id)}}>
+                    Delete
+                  </Button>
                 </Accordion.Body>
               </Accordion.Item>
             )
